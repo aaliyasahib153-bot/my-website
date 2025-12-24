@@ -1,72 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>https://aaliyasahib153-bot.github.io/my-website/index.html - Play Online</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f0f0f0;
-        }
-        #board {
-            display: grid;
-            grid-template-columns: repeat(15, 30px);
-            grid-template-rows: repeat(15, 30px);
-            gap: 2px;
-            margin: 20px auto;
-            width: 480px;
-            height: 480px;
-            background-color: #fff;
-            border: 2px solid #333;
-        }
-        .cell {
-            background-color: #ddd;
-            border: 1px solid #999;
-        }
-        .red { background-color: red; }
-        .blue { background-color: blue; }
-        .green { background-color: green; }
-        .yellow { background-color: yellow; }
-        button {
-            margin: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Welcome to https://aaliyasahib153-bot.github.io/my-website/index.html</h1>
-    <p>Roll the dice and move your pieces!</p>
-    <div id="board"></div>
-    <button id="rollDice">Roll Dice</button>
-    <p id="diceResult">Dice: -</p>
-    <p id="currentPlayer">Current Player: Red</p>
+<!-- Final Business Details Section with Exact Google Maps Link -->
+<div style="max-width:700px; margin:30px auto; padding:30px; background:#ffffff; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.1); font-family:'Arial', sans-serif;">
+    <h2 style="color:#2c3e50; text-align:center; margin-bottom:25px;">My Business Name</h2>
 
-    <script>
-        // Simple Ludo board setup (15x15 grid for simplicity)
-        const board = document.getElementById('board');
-        for (let i = 0; i < 225; i++) {
-            const cell = document.createElement('div');
-            cell.classList.add('cell');
-            board.appendChild(cell);
+    <!-- Business Info -->
+    <div style="margin-bottom:20px; line-height:1.6; color:#555;">
+        <p>🏢 <strong>Address:</strong> 123 Street Name, City, Country</p>
+        <p>📞 <strong>Phone:</strong> <a href="tel:+918278471856" style="color:#4CAF50; text-decoration:none;">+91 8278471856</a></p>
+        <p>✉ <strong>Email:</strong> <a href="mailto:sahibhussain919@gmail.com" style="color:#3498db; text-decoration:none;">sahibhussain919@gmail.com</a></p>
+        <p>🌐 <strong>Website:</strong> <a href="https://aaliyasahib153-bot.github.io/my-website/index.html" target="_blank" style="color:#2c3e50; text-decoration:underline;">www.my-website</a></p>
+    </div>
+
+    <!-- Buttons -->
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px;">
+        <a href="tel:+918278471856" style="text-decoration:none;">
+            <button style="background-color:#4CAF50; color:white; padding:12px 22px; border:none; border-radius:8px; cursor:pointer; font-size:16px; transition:0.3s;">📞 Call Now</button>
+        </a>
+        <a href="mailto:sahibhussain919@gmail.com" style="text-decoration:none;">
+            <button style="background-color:#3498db; color:white; padding:12px 22px; border:none; border-radius:8px; cursor:pointer; font-size:16px; transition:0.3s;">✉ Email Now</button>
+        </a>
+        <a href="https://wa.me/918278471856" target="_blank" style="text-decoration:none;">
+            <button style="background-color:#25D366; color:white; padding:12px 22px; border:none; border-radius:8px; cursor:pointer; font-size:16px; transition:0.3s;">💬 WhatsApp</button>
+        </a>
+        <a href="https://maps.app.goo.gl/1asYRkNSeqZ86MXq7?g_st=ac" target="_blank" style="text-decoration:none;">
+            <button style="background-color:#e74c3c; color:white; padding:12px 22px; border:none; border-radius:8px; cursor:pointer; font-size:16px; transition:0.3s;">📍 View on Maps</button>
+        </a>
+    </div>
+</div>
+
+<style>
+    button:hover {
+        opacity: 0.85;
+        transform: scale(1.05);
+    }
+
+    @media(max-width:500px) {
+        div[style*="display:flex"] {
+            flex-direction:column;
         }
-
-        // Basic dice roll and player turn logic
-        let currentPlayer = 'red';
-        const players = ['red', 'blue', 'green', 'yellow'];
-        let playerIndex = 0;
-
-        document.getElementById('rollDice').addEventListener('click', () => {
-            const roll = Math.floor(Math.random() * 6) + 1;
-            document.getElementById('diceResult').textContent = `Dice: ${roll}`;
-            // Here, you'd add logic to move pieces based on roll
-            // For now, just switch players
-            playerIndex = (playerIndex + 1) % players.length;
-            currentPlayer = players[playerIndex];
-            document.getElementById('currentPlayer').textContent = `Current Player: ${currentPlayer.charAt(0).toUpperCase() + currentPlayer.slice(1)}`;
-        });
-    </script>
-</body>
-</html>
+    }
+</style>
