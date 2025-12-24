@@ -1,21 +1,72 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - My Website</title>
+    <title>https://aaliyasahib153-bot.github.io/my-website/index.html - Play Online</title>
     <style>
-        body { font-family: Arial; text-align: center; padding: 50px; background-color: #f0f0f0; }
-        nav a { margin: 0 15px; text-decoration: none; color: #333; font-weight: bold; }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        #board {
+            display: grid;
+            grid-template-columns: repeat(15, 30px);
+            grid-template-rows: repeat(15, 30px);
+            gap: 2px;
+            margin: 20px auto;
+            width: 480px;
+            height: 480px;
+            background-color: #fff;
+            border: 2px solid #333;
+        }
+        .cell {
+            background-color: #ddd;
+            border: 1px solid #999;
+        }
+        .red { background-color: red; }
+        .blue { background-color: blue; }
+        .green { background-color: green; }
+        .yellow { background-color: yellow; }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
-    <h1>Welcome to My Website</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="ludo.html">Play Ludo</a>
-    </nav>
-    <p>यह मेरी वेबसाइट का मुख्य पेज है। नीचे लिंक से Ludo गेम खेलें।</p>
+    <h1>Welcome to https://aaliyasahib153-bot.github.io/my-website/index.html</h1>
+    <p>Roll the dice and move your pieces!</p>
+    <div id="board"></div>
+    <button id="rollDice">Roll Dice</button>
+    <p id="diceResult">Dice: -</p>
+    <p id="currentPlayer">Current Player: Red</p>
+
+    <script>
+        // Simple Ludo board setup (15x15 grid for simplicity)
+        const board = document.getElementById('board');
+        for (let i = 0; i < 225; i++) {
+            const cell = document.createElement('div');
+            cell.classList.add('cell');
+            board.appendChild(cell);
+        }
+
+        // Basic dice roll and player turn logic
+        let currentPlayer = 'red';
+        const players = ['red', 'blue', 'green', 'yellow'];
+        let playerIndex = 0;
+
+        document.getElementById('rollDice').addEventListener('click', () => {
+            const roll = Math.floor(Math.random() * 6) + 1;
+            document.getElementById('diceResult').textContent = `Dice: ${roll}`;
+            // Here, you'd add logic to move pieces based on roll
+            // For now, just switch players
+            playerIndex = (playerIndex + 1) % players.length;
+            currentPlayer = players[playerIndex];
+            document.getElementById('currentPlayer').textContent = `Current Player: ${currentPlayer.charAt(0).toUpperCase() + currentPlayer.slice(1)}`;
+        });
+    </script>
 </body>
 </html>
