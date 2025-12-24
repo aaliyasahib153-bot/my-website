@@ -2,51 +2,104 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Simple Ludo Table</title>
+<title>Ludo Game</title>
+
 <style>
 body {
-    background: #f2f2f2;
+    background: linear-gradient(135deg, #1d2671, #c33764);
+    font-family: Arial, sans-serif;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
+/* Board */
 .board {
     display: grid;
-    grid-template-columns: repeat(15, 30px);
-    grid-template-rows: repeat(15, 30px);
-    border: 4px solid black;
+    grid-template-columns: repeat(15, 32px);
+    grid-template-rows: repeat(15, 32px);
     background: white;
+    border: 5px solid black;
 }
 
+/* Cells */
 .cell {
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
 }
 
-/* colors */
-.red { background: red; }
-.green { background: green; }
-.yellow { background: yellow; }
-.blue { background: blue; }
-.white { background: white; }
-.center { background: #ddd; }
+/* Home areas */
+.red { background: #e53935; }
+.green { background: #43a047; }
+.yellow { background: #fdd835; }
+.blue { background: #1e88e5; }
+.center { background: #ccc; }
+
+/* Coins */
+.coin {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin: auto;
+}
+.coin.red { background: darkred; }
+.coin.green { background: darkgreen; }
+
+/* Panel */
+.panel {
+    margin-left: 30px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
 </style>
 </head>
+
 <body>
 
+<!-- Board -->
 <div class="board">
-    <!-- Row 1 -->
     <div class="red cell" style="grid-column:1/7;grid-row:1/7;"></div>
     <div class="green cell" style="grid-column:10/16;grid-row:1/7;"></div>
-
-    <!-- Row 2 -->
     <div class="blue cell" style="grid-column:1/7;grid-row:10/16;"></div>
     <div class="yellow cell" style="grid-column:10/16;grid-row:10/16;"></div>
-
-    <!-- Center -->
     <div class="center cell" style="grid-column:7/10;grid-row:7/10;"></div>
+
+    <!-- Example path cell -->
+    <div id="path1" class="cell" style="grid-column:7;grid-row:6;">
+        <div id="coin" class="coin red"></div>
+    </div>
+    <div id="path2" class="cell" style="grid-column:7;grid-row:5;"></div>
+    <div id="path3" class="cell" style="grid-column:7;grid-row:4;"></div>
 </div>
+
+<!-- Control Panel -->
+<div class="panel">
+    <h2>🎲 Dice</h2>
+    <button onclick="rollDice()">Roll Dice</button>
+    <p id="diceResult">Result: -</p>
+</div>
+
+<script>
+let position = 1;
+
+function rollDice() {
+    let dice = Math.floor(Math.random() * 6) + 1;
+    document.getElementById("diceResult").innerText = "Result: " + dice;
+
+    position++;
+    if (position > 3) position = 1;
+
+    document.getElementById("path" + position).appendChild(
+        document.getElementById("coin")
+    );
+}
+</script>
 
 </body>
 </html>
