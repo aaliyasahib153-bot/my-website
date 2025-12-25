@@ -1,22 +1,19 @@
 <?php
 session_start();
 include 'db.php';
+if(!isset($_SESSION['uid'])) header("location:login.php");
 
-$id = $_SESSION['user'];
-$user = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM users WHERE id=$id"));
-
-if(isset($_POST['play'])){
-  if($user['wallet'] >= 5){
-    mysqli_query($conn,"UPDATE users SET wallet=wallet-5 WHERE id=$id");
-    echo "Game Played (-₹5)";
-  } else {
-    echo "Low Balance";
-  }
-}
+$u = mysqli_fetch_assoc(
+mysqli_query($conn,"SELECT * FROM users WHERE id=".$_SESSION['uid']));
 ?>
 
-<h2>Wallet Balance: ₹<?php echo $user['wallet']; ?></h2>
+<h3>Wallet Balance: ₹<?php echo $u['wallet']; ?></h3>
 
-<form method="post">
-<button name="play">Play Ludo</button>
+<form method="post" action="wallet_action.php">
+<input name="amount" placeholder="Amount">
+<button name="add">Add Money</button>
+<button name="withdraw">Withdraw</button>
 </form>
+
+<a href="tables.php">Back</a>
+
