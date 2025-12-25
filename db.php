@@ -1,7 +1,5 @@
-
 <?php
-$conn = mysqli_connect("localhost","root","","ludo_game");
-if(!$conn){
-  die("Database Error");
-}
+$conn = mysqli_connect("localhost","root","","ludo_site");
+if(!$conn){ die("DB Error"); }
 ?>
+
