@@ -1,29 +1,11 @@
+CREATE DATABASE ludo_site;
+USE ludo_site;
 
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Ludo Game</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50),
+  mobile VARCHAR(15),
+  password VARCHAR(50),
+  wallet INT DEFAULT 100
+);
 
-<h2>Ludo Table</h2>
-
-<div class="board">
-  <div class="cell red">R</div>
-  <div class="cell green">G</div>
-  <div class="cell yellow">Y</div>
-  <div class="cell blue">B</div>
-</div>
-
-<button onclick="rollDice()">Roll Dice</button>
-<p id="dice">Dice: -</p>
-
-<h2>Wallet</h2>
-<p>Balance: ₹<span id="balance">100</span></p>
-<button onclick="addMoney()">Add ₹10</button>
-<button onclick="playGame()">Play (-₹5)</button>
-
-<script src="script.js"></script>
-</body>
-</html>
