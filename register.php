@@ -1,23 +1,16 @@
-
 <?php
 include 'db.php';
-
-if(isset($_POST['register'])){
-  $name = $_POST['name'];
-  $email = $_POST['email'];
-  $pass = $_POST['password'];
-
-  mysqli_query($conn,
-    "INSERT INTO users (name,email,password)
-     VALUES ('$name','$email','$pass')");
-
-  echo "Registration Successful";
+if(isset($_POST['reg'])){
+  mysqli_query($conn,"INSERT INTO users(name,mobile,password)
+  VALUES('$_POST[name]','$_POST[mobile]','$_POST[password]')");
+  echo "Registered Successfully";
 }
 ?>
 
 <form method="post">
 <input name="name" placeholder="Name" required>
-<input name="email" placeholder="Email" required>
+<input name="mobile" placeholder="Mobile" required>
 <input name="password" placeholder="Password" required>
-<button name="register">Register</button>
+<button name="reg">Register</button>
 </form>
+<a href="login.php">Login</a>
