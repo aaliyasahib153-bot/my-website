@@ -1,27 +1,22 @@
-
 <?php
 session_start();
 include 'db.php';
 
 if(isset($_POST['login'])){
-  $email = $_POST['email'];
-  $pass = $_POST['password'];
-
   $q = mysqli_query($conn,
-    "SELECT * FROM users WHERE email='$email' AND password='$pass'");
-  $data = mysqli_fetch_assoc($q);
-
-  if($data){
-    $_SESSION['user'] = $data['id'];
-    header("location:wallet.php");
+  "SELECT * FROM users WHERE mobile='$_POST[mobile]' AND password='$_POST[password]'");
+  $u = mysqli_fetch_assoc($q);
+  if($u){
+    $_SESSION['uid']=$u['id'];
+    header("location:tables.php");
   } else {
-    echo "Invalid Login";
+    echo "Wrong Details";
   }
 }
 ?>
 
 <form method="post">
-<input name="email" placeholder="Email">
+<input name="mobile" placeholder="Mobile">
 <input name="password" placeholder="Password">
 <button name="login">Login</button>
 </form>
