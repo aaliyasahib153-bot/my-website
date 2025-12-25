@@ -1,123 +1,29 @@
+
 <!DOCTYPE html>
-<html lang="hi">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Old Coin Buyer India</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#fdf6e3; color:#333; }
-    header { background-color:#d4af37; padding:20px 0; text-align:center; position:relative; }
-    header img { max-width:180px; }
-    header h1 { margin:10px 0 5px; font-size:28px; }
-    header p { margin:5px 0; font-size:16px; }
-
-    /* Hero Banner */
-    .hero { background:#f2e6c9; padding:30px 20px; text-align:center; }
-    .hero h2 { font-size:22px; margin:10px 0; }
-    .hero p { font-size:16px; margin:5px 0; }
-
-    /* Buttons */
-    .btn { display:inline-block; text-decoration:none; color:white; padding:10px 20px; border-radius:5px; margin:5px; font-size:16px; }
-    .whatsapp { background:#25D366; position:fixed; bottom:80px; right:20px; z-index:100; }
-    .call { background:#0B5394; position:fixed; bottom:20px; right:20px; z-index:100; }
-
-    /* Features */
-    .section { padding:20px; }
-    .features { display:flex; flex-wrap:wrap; justify-content:center; }
-    .feature-box { background:#fff8e7; margin:10px; padding:15px; border-radius:5px; width:140px; text-align:center; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
-    .feature-box h3 { font-size:16px; margin:5px 0; }
-
-    /* Gallery */
-    .gallery img { max-width:100px; margin:5px; border-radius:5px; }
-
-    /* Testimonials */
-    .testimonial { background:#f0e6d2; margin:10px; padding:10px; border-radius:5px; font-size:14px; }
-
-    /* FAQ */
-    .faq { text-align:left; max-width:500px; margin:auto; }
-    .faq h4 { margin:10px 0 5px; }
-    .faq p { margin:5px 0 10px 0; }
-
-    footer { background:#333; color:white; padding:15px; font-size:14px; text-align:center; margin-top:20px; }
-  </style>
+  <title>Ludo Game</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <img src="logo.png" alt="Old Coin Buyer India Logo">
-  <h1>Old Coin Buyer India</h1>
-  <p>We Buy Rare & Old Coins Across India</p>
-</header>
+<h2>Ludo Table</h2>
 
-<!-- Hero Section -->
-<div class="hero">
-  <h2>Sell Your Old & Rare Coins Safely</h2>
-  <p>Trusted buyer across India. Get the best price for your coins!</p>
+<div class="board">
+  <div class="cell red">R</div>
+  <div class="cell green">G</div>
+  <div class="cell yellow">Y</div>
+  <div class="cell blue">B</div>
 </div>
 
-<!-- Features Section -->
-<div class="section">
-  <h2>Why Choose Us</h2>
-  <div class="features">
-    <div class="feature-box">🪙<h3>Best Prices</h3></div>
-    <div class="feature-box">✅<h3>Trusted Buyer</h3></div>
-    <div class="feature-box">📦<h3>Safe Handling</h3></div>
-    <div class="feature-box">⏱<h3>Fast Payment</h3></div>
-  </div>
-</div>
+<button onclick="rollDice()">Roll Dice</button>
+<p id="dice">Dice: -</p>
 
-<!-- Gallery / Featured Coins -->
-<div class="section">
-  <h2>Featured Coins</h2>
-  <div class="gallery">
-    <img src="coin1.jpg" alt="Coin 1">
-    <img src="coin2.jpg" alt="Coin 2">
-    <img src="coin3.jpg" alt="Coin 3">
-  </div>
-</div>
+<h2>Wallet</h2>
+<p>Balance: ₹<span id="balance">100</span></p>
+<button onclick="addMoney()">Add ₹10</button>
+<button onclick="playGame()">Play (-₹5)</button>
 
-<!-- Testimonials -->
-<div class="section">
-  <h2>Customer Testimonials</h2>
-  <div class="testimonial">"Excellent service! Got a fair price for my old coins." – Rajesh</div>
-  <div class="testimonial">"Trustworthy buyer, highly recommended." – Sunita</div>
-</div>
-
-<!-- FAQ Section -->
-<div class="section faq">
-  <h2>FAQs</h2>
-  <h4>Old coins kaise sell kare?</h4>
-  <p>WhatsApp ya call se contact kare, coin verify ke baad best price milega.</p>
-  <h4>Kaise price determine hota hai?</h4>
-  <p>Coin ki rarity, condition aur market demand ke hisab se price decide hota hai.</p>
-  <h4>Advance payment charge hota hai kya?</h4>
-  <p>Hum koi advance fee nahi lete. Coin verify ke baad hi payment hota hai.</p>
-</div>
-
-<!-- Floating Buttons -->
-<a href="https://wa.me/918278471856" class="btn whatsapp" target="_blank">WhatsApp</a>
-<a href="tel:+918278471856" class="btn call">Call</a>
-
-<footer>
-  <p>Hum koi advance fee nahi lete. Coin verify ke baad hi deal hoti hai.</p>
-</footer>
-
+<script src="script.js"></script>
 </body>
 </html>
-<img src="logo.png" alt="Old Coin Buyer India Logo" width="180">
-<p>
-📧 Email:
-<a href="mailto:sahibhussain919@gmail.com">
-</a>
-</p>
-<h2>Contact Us</h2>
-
-<form action="https://formspree.io/f/FORMID" method="POST">
-  <input type="text" name="name" placeholder="Apna Naam" required><br><br>
-
-  <input type="email" name="email" placeholder="Apna Email" required><br><br>
-
-  <textarea name="message" placeholder="Apna Message" rows="4" required></textarea><br><br>
-
-  <button type="submit">Message Bheje</button>
-</form>
